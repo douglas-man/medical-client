@@ -35,7 +35,13 @@
         </cxf:features>
     </cxf:bus-->
 
-    <jaxws:client id="emrService" serviceClass="gov.va.medora.mdws.emrsvc.EmrSvcSoap" address="http://mdws.vacloud.us/mdws2/EmrSvc.asmx" />
+    <!--jaxws:client id="emrService" serviceClass="gov.va.medora.mdws.emrsvc.EmrSvcSoap" address="http://mdws.vacloud.us/mdws2/EmrSvc.asmx" /-->
+
+
+    <!-- http://mobiledemodev.agilexhealth.com/mdws/mdws3.2.8/EmrSvc.asmx?WSDL -->
+    <!--jaxws:client id="emrService" serviceClass="gov.va.mdws.emrsvc.EmrSvcSoap" address="http://mobiledemodev.agilexhealth.com/mdws3.2.8/EmrSvc.asmx" /-->
+
+    <jaxws:client id="emrSvc" serviceClass="gov.va.medora.mdws.emrsvc.EmrSvcSoap" address="http://mdws.vacloud.us/mdws2/EmrSvc.asmx" />
 
     <!--bean id="logInbound" class="org.apache.cxf.interceptor.LoggingInInterceptor"/>
     <bean id="logOutbound" class="org.apache.cxf.interceptor.LoggingOutInterceptor"/>
