@@ -25,13 +25,18 @@ public class App {
         RegionArray regionArray = port.getVHA();
 
         for (RegionTO regionTO: regionArray.getRegions().getRegionTO()) {
-            LOGGER.debug("Name: "+regionTO.getName()+", ID: "+regionTO.getId());
+            LOGGER.debug("Region Name: "+regionTO.getName()+", ID: "+regionTO.getId()+"\n");
+            for (SiteTO siteTO: regionTO.getSites().getSites().getSiteTO()) {
+                LOGGER.debug("site code: "+siteTO.getSitecode()+", site name: "+siteTO.getName()+"\n");
+            }
         }
 
+        port.connect("901"); // site code: 901, site name: CPM
+        port.login("1programmer", "programmer1", "");
 
 //        String quote = port.getQuote("AAPL");
 //        DataSourceArray dataSourceArray = port.connect("688");
-        LOGGER.debug("port: "+ port);
+//        LOGGER.debug("port: "+ port);
 
 //        LOGGER.debug("port: "+ port);
 
@@ -53,5 +58,6 @@ public class App {
         // Iterator<VisitTO> iter = vArray.getVisitTO()
 
 //        LOGGER.debug("getVisits result: "+ port.getVisits("20150808.000000", "20160808.235959"));
+        port.disconnect();
     }
 }
