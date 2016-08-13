@@ -31,8 +31,13 @@ public class App {
             }
         }
 
-        port.connect("901"); // site code: 901, site name: CPM
-        port.login("1programmer", "programmer1", "");
+        DataSourceArray dataSourceArray = port.connect("901"); // site code: 901, site name: CPM
+        if(dataSourceArray.getFault() != null)
+            LOGGER.debug(dataSourceArray.getFault().getMessage());
+
+        UserTO userTO = port.login("1programmer", "programmer1", "");
+        if(userTO.getFault() != null)
+            LOGGER.debug(userTO.getFault().getMessage());
 
 //        String quote = port.getQuote("AAPL");
 //        DataSourceArray dataSourceArray = port.connect("688");
